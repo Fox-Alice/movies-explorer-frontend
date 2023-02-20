@@ -1,0 +1,129 @@
+.about-me {
+    background-color: #202020;    
+}
+
+.about-me__image {
+    border-radius: 10px;
+    width: 292px;
+    margin: 60px 0 40px ;
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px){
+    .about-me__image {
+        margin: 0;
+        max-width: 255px;
+        max-height: 307px;
+    }
+}
+
+@media screen  and (min-width: 769px){
+    .about-me__image {
+        margin: 0;
+        max-width: 270px;
+        max-height: 327px;
+    }
+}
+
+.about-me__subtitle {
+    font-size: 30px;
+    line-height: 36px;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px){
+    .about-me__subtitle {
+        margin:  0 0 16px;
+        font-size: 40px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (min-width: 769px){
+    .about-me__subtitle {
+        margin:  0 0 18px;
+        font-size: 50px;
+        line-height: 58px;
+    }
+}
+
+
+.about-me__content {
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 769px){
+    .about-me__content {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+
+.about-me__description {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px){
+    .about-me__description {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (min-width: 769px){
+    .about-me__description {
+        margin: 0 0 26px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+.about-me__github-link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 20px 0 70px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px){
+    .about-me__github-link {
+        margin: 67px 0 0;
+    }
+}
+
+@media screen and (min-width: 769px){
+    .about-me__github-link {
+        margin: 79px 0 0;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .about-me__container {
+        margin: 66px 0 0;
+        direction: rtl;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .about-me__content-container {
+        display: flex;
+        flex-direction: column;
+        text-align: end;
+        margin: 0 49px 0 0;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .about-me__content-container {
+        margin: 0 270px 0 0;
+    }
+}
+
