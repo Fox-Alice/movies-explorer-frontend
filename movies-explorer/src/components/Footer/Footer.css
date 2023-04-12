@@ -25,9 +25,16 @@
         flex-direction: row-reverse;
     }
 }
+
+.footer__link-container {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (min-width: 600px){
     .footer__link-container {
         display: flex;
+        flex-direction: row;
         gap: 20px;
     }
 }

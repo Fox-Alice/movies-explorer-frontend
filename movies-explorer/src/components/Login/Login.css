@@ -1,0 +1,11 @@
+@media screen and (max-width: 768px) and (min-width: 600px){
+    .login__input {
+        max-width: 396px;
+    }
+}
+
+@media screen and (min-width: 769px){
+    button.login__button {
+        margin: 179px 0 16px;
+    }
+}

@@ -1,31 +1,12 @@
-import { Link } from 'react-router-dom';
 import './NavTab.css'
 
 function NavTab(){
     return (
         <section className="menu">
             <div className="menu__container">
-            <Link
-                to="/"
-                className="menu__link"
-                // onClick={onLogout}
-                >
-                О проекте
-              </Link>
-              <Link
-                to="/"
-                className="menu__link"
-                // onClick={onLogout}
-                >
-                Технологии
-              </Link>
-              <Link
-                to="/profile"
-                className="menu__link"
-                // onClick={onLogout}
-                >
-                Студент
-              </Link>
+            <a href="#about-project" className="menu__link">О проекте</a>
+              <a href="#techs" className="menu__link">Технологии</a>
+              <a href="#about-me" className="menu__link">Студент</a>
               </div>
         </section>
         );

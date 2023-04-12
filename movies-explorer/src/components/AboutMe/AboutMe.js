@@ -3,7 +3,7 @@ import image from '../../images/about-me__image.png'
 function AboutMe() {
     return (
         <main className="about-me block">
-            <h2 className="about-me__title title">Студент</h2>
+            <h2 id="about-me" className="about-me__title title">Студент</h2>
             <hr className="about-me__border border"></hr>
             <div className='about-me__container'>
                 <img className="about-me__image" src={image} alt={"avatar"} />

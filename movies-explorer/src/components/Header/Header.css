@@ -39,6 +39,7 @@
 }
 
 .page {
+    height: 100%;
     background-color: #073042;
 }
 
@@ -81,3 +82,23 @@
     }
 }
 
+.header__burger-button {
+    cursor: pointer;
+    background: url(../../images/header__burger-button.svg) no-repeat;
+    min-width: 40px;
+    min-height: 43px;
+    margin: 17px 14px;
+}
+
+@media screen and (min-width: 769px){
+    .header__burger-button {
+        display: none;        }
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px){
+    .header__burger-button {
+        width: 43px;
+        height: 43px;
+        margin: 15px;
+    }
+}

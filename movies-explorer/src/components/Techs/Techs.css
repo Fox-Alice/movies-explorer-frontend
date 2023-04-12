@@ -13,8 +13,8 @@
     grid-template-columns: repeat(2, 84px);
     grid-template-rows: repeat(4, 57px);
     gap: 10px;
-    padding: 0;
-    margin: 50px 0 70px;
+    padding: 0 0 70px;
+    margin: 50px 0 0;
     justify-content: center;
 }
 
