@@ -2,26 +2,29 @@ import './Portfolio.css';
 
 function Portfolio() {
     return (
-        <main className="portfolio block">
+        <section className="portfolio block">
             <h4 className="portfolio__title">Портфолио</h4>
-            <a className="portfolio__link" href="https://github.com/Fox-Alice/how-to-learn">
-                <div className="portfolio__string">
-                    <p className="portfolio__name">Статичный сайт</p>
-                    <p className="portfolio__name">↗</p>
-                </div> </a>
-                <hr className="portfolio__border"></hr>
-            <a className="portfolio__link" href="https://github.com/Fox-Alice/russian-travel">
-                <div className="portfolio__string">
-                    <p className="portfolio__name">Адаптивный сайт</p>
-                    <p className="portfolio__name">↗</p>
-                </div> </a>
-                <hr className="portfolio__border"></hr>
-                <a className="portfolio__link" href="https://fox-alice.github.io/mesto/">
-                <div className="portfolio__string">
-                    <p className="portfolio__name">Одностраничное приложение</p>
-                    <p className="portfolio__name">↗</p>
-                </div> </a>
-        </main>
+            <li className="portfolio__list">
+                <a className="portfolio__link" href="https://fox-alice.github.io/how-to-learn/" target="_blank" rel="noreferrer">
+                    <div className="portfolio__string">
+                        <p className="portfolio__name">Статичный сайт</p>
+                        <p className="portfolio__name">↗</p>
+                    </div> </a></li>
+            <hr className="portfolio__border"></hr>
+            <li className="portfolio__list">
+                <a className="portfolio__link" href="https://fox-alice.github.io/russian-travel/" target="_blank" rel="noreferrer">
+                    <div className="portfolio__string">
+                        <p className="portfolio__name">Адаптивный сайт</p>
+                        <p className="portfolio__name">↗</p>
+                    </div> </a></li>
+            <hr className="portfolio__border"></hr>
+            <li className="portfolio__list">
+                <a className="portfolio__link" href="https://fox-alice.github.io/mesto/" target="_blank" rel="noreferrer">
+                    <div className="portfolio__string">
+                        <p className="portfolio__name">Одностраничное приложение</p>
+                        <p className="portfolio__name">↗</p>
+                    </div> </a></li>
+        </section>
     );
 }
 

@@ -3,7 +3,7 @@
 }
 
 .greeting {
-    margin: 70px 0 80px;
+    margin: 70px 0 77px;
     font-weight: 500;
     line-height: 29px;
     text-align: center;
@@ -11,38 +11,34 @@
     font-size: 24px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 321px){
+@media screen and (max-width: 768px) and (min-width: 321px) {
     .greeting {
         margin: 236px 0 96px;
     }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .greeting {
-        margin: 74px 0 123px;
+        margin: 74px 0 120px;
     }
 }
 
 .profile__form {
-    padding: 0 30px 379px;
+    max-width: 260px;
+    margin: 0 auto 379px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 600px){
+@media screen and (max-width: 768px) and (min-width: 600px) {
     .profile__form {
-        padding: 0 179px 210px;
+        min-width: 410px;
+        margin: 0 auto 210px;
     }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .profile__form {
-        padding: 0 435px 220px;
-    }
-}
-
-@media screen and (min-width: 1280px){
-    .profile__form {
-        width: 410px;
-        margin: auto;
+        max-width: 410px;
+        margin: 0 auto 220px;
     }
 }
 
@@ -57,17 +53,16 @@
     background-color: #202020;
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .profile__info {
         font-size: 11px;
-
     }
 }
 
 .profile__border {
     background: #424242;
     min-width: 260px;
-    margin: 16px 0 17px;
+    margin: 15px 0 13px;
 }
 
 .profile__input {
@@ -82,12 +77,12 @@
     margin: auto;
     display: flex;
     align-items: center;
-    text-align: center;    
+    text-align: center;
     color: #FFFFFF;
     font-size: 12px;
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) {
     .profile__button {
         font-size: 13px;
         line-height: 16px;
@@ -99,8 +94,14 @@
     padding: 16px 0 40px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 600px){
+@media screen and (max-width: 768px) and (min-width: 600px) {
     .profile__button-logout {
         padding: 16px 0 269px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .profile__button-logout {
+        padding: 16px 0 70px;
     }
 }

@@ -12,29 +12,22 @@
     color: #FFFFFF;
 }
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 500px) {
     .menu__link {
-    font-size: 13px;
+        font-size: 13px;
     }
 }
-
 
 .menu__container {
     margin: auto;
-    max-width: 66.88%;
+    gap: 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     vertical-align: middle;
 }
 
-@media screen and (max-width: 768px) and (min-width: 321px){
+@media screen and (min-width: 768px) {
     .menu__container {
-        max-width: 35.94%;
-    }
-}
-
-@media screen and (min-width: 1024px){
-    .menu__container {
-        max-width: 21.56%;
+        gap: 40px;
     }
 }

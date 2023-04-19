@@ -1,18 +1,31 @@
 .register {
+    padding: 0 9.37%;
     display: flex;
     flex-direction: column;
     background-color: #202020;
 }
 
-@media screen and (max-width: 1199px) and (min-width: 574px){
+@media screen and (max-width: 790px) and (min-width: 574px) {
     .register {
-        padding: 0 186px;
+        padding: 0 24.21%;
     }
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (max-width: 1024px) and (min-width: 790px) {
     .register {
-        padding: 0 442px;
+        padding: 0 29%;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+    .register {
+        padding: 0 32%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .register {
+        padding: 0 34.53%;
     }
 }
 
@@ -21,48 +34,51 @@
     width: 38px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 574px){
+@media screen and (max-width: 768px) and (min-width: 574px) {
     .register__logo {
-    margin: 232px 0 40px;    }
+        margin: 232px 0 40px;
+    }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .register__logo {
-    margin: 70px 0 40px;    }
+        margin: 70px 0 40px;
+    }
 }
 
 .register__greeteng {
     margin: 0;
 }
 
-@media screen and (min-width: 574px){
+@media screen and (min-width: 574px) {
     .register__greeteng {
-        text-align: start;    }
+        text-align: start;
+    }
 }
 
 .register__form {
-    padding: 0 30px;
-    margin: 80px 0 0;
+    margin: 75px 0 0;
 }
 
-@media screen and (min-width: 574px){
+@media screen and (min-width: 574px) {
     .register__form {
         padding: 0;
     }
-}    
+}
 
 .register__info {
-    margin: 10px 0 10px;
+    margin: 10px 0 12px;
     font-size: 10px;
     color: #8B8B8B;
     line-height: 12px;
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 768px) {
     .register__form {
         padding: 0;
-        margin: 40px 0 0;
-    }}
+        margin: 35px 0 0;
+    }
+}
 
 .register__input {
     width: 88.4%;
@@ -79,24 +95,24 @@
     .register__input {
         width: 91.8%;
     }
-}    
-
-@media screen and (min-width: 769px){
-    .register__input {
-        width: 92.4%;
-    }    
 }
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 769px) {
+    .register__input {
+        width: 92.4%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
     .register__input {
         width: 95.4%;
-    }    
+    }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
     .register__input {
         width: 92.4%;
-    }    
+    }
 }
 
 .form__input-error {
@@ -119,27 +135,35 @@
     font-size: 12px;
     border: 0;
     height: 45px;
-    margin: 150px 30px 14px;
+    margin: 150px 0 14px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 574px){
+@media screen and (max-width: 768px) and (min-width: 574px) {
     .register__button {
-        margin: 179px 0 16px;
+        margin: 65px 0 16px;
     }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .register__button {
         margin: 69px 0 16px;
     }
 }
-    
+
 .register__question {
     margin: 0 7px 0 0;
     font-size: 12px;
     text-align: center;
     color: #8B8B8B;
     line-height: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .register__question {
+        margin: 0 10px 0 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
 
 .register__signin-link {
@@ -151,19 +175,26 @@
     cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+    .register__signin-link {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
 .register__container {
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 574px){
+@media screen and (max-width: 768px) and (min-width: 574px) {
     .register__container {
         padding-bottom: 232px;
     }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .register__container {
         padding-bottom: 70px;
     }

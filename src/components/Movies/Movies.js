@@ -7,13 +7,15 @@ import Footer from '../Footer/Footer';
 
 function Movies() {
     return (
-        <main className="movies">
-              <Header header="header movies__header"/>
-        <SearchForm/>
-        <MoviesCardList isSavedMovies= {false} />
-        <button className="movies__more-button" type="submit">Ещё</button>
-        <Footer/>
-        </main>
+        <section className="movies">
+            <Header header="header movies__header" />
+            <main>
+                <SearchForm />
+                <MoviesCardList isSavedMovies={false} />
+                <button className="movies__more-button" type="submit">Ещё</button>
+            </main>
+            <Footer />
+        </section>
     );
 }
 

@@ -8,7 +8,7 @@
     text-decoration: none;
 }
 
-@media screen and (min-width: 321px){
+@media screen and (min-width: 321px) {
     .header__signup-link {
         font-size: 12px;
     }
@@ -24,7 +24,7 @@
     color: #000;
 }
 
-@media screen and (min-width: 321px){
+@media screen and (min-width: 321px) {
     .header__signin-link {
         font-size: 12px;
     }
@@ -32,6 +32,7 @@
 
 
 .header {
+    max-height: 74px;
     display: flex;
     justify-content: space-between;
     max-width: 1280px;
@@ -47,13 +48,13 @@
     margin: 18px 14px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 321px){
+@media screen and (max-width: 768px) and (min-width: 321px) {
     .header__logo {
         margin: 18px 30px;
     }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .header__logo {
         margin: 18px 70px;
     }
@@ -68,7 +69,7 @@
     min-height: 26px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 321px){
+@media screen and (max-width: 768px) and (min-width: 321px) {
     .header__button {
         margin: 21px 30px;
         min-width: 76px;
@@ -76,7 +77,7 @@
     }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .header__button {
         margin: 21px 70px 21px 30px;
     }
@@ -90,12 +91,13 @@
     margin: 17px 14px;
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .header__burger-button {
-        display: none;        }
+        display: none;
+    }
 }
 
-@media screen and (max-width: 768px) and (min-width: 321px){
+@media screen and (max-width: 768px) and (min-width: 321px) {
     .header__burger-button {
         width: 43px;
         height: 43px;

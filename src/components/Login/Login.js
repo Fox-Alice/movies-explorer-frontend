@@ -7,7 +7,7 @@ const email = "pochta@yandex.ru";
 function Login() {
 
     return (
-        <main className="login register">
+        <section className="login register">
             <img
                 className="register__logo login__logo"
                 src={logo}
@@ -30,7 +30,7 @@ function Login() {
                 <Link to="/signup" className="register__signin-link">Регистрация
                 </Link>
             </div>
-        </main>
+        </section>
     );
 
 }

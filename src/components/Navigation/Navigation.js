@@ -8,7 +8,7 @@ function Navigation() {
             <div className="navigation__link-container">
             <NavLink
                 exact to="/"
-                className="navigation__link"
+                className="navigation__link navigation__link-main"
                 activeClassName="navigation__link_active"
                 >
                 Главная

@@ -17,34 +17,34 @@ import image14 from '../../images/movies-card__image14.png';
 import image15 from '../../images/movies-card__image15.png';
 import image16 from '../../images/movies-card__image16.png';
 
-function MoviesCardList({isSavedMovies}) {
+function MoviesCardList({ isSavedMovies }) {
     return (
-        <main className="movies-card-list">
+        <section className="movies-card-list">
             {isSavedMovies ? (
                 <>
-                <MoviesCard image={image1} active={"movies-card__remove-icon"}/>
-                <MoviesCard image={image2} active={"movies-card__remove-icon"}/>
+                    <MoviesCard image={image1} active={"movies-card__remove-icon"} />
+                    <MoviesCard image={image2} active={"movies-card__remove-icon"} />
                 </>
-                ) : (
-                    < >
-            <MoviesCard image={image1} active={"movies-card__save-icon_active"}/>
-            <MoviesCard image={image2} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image3} active={"movies-card__save-icon_active"}/>
-            <MoviesCard image={image4} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image5} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image6} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image7} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image8} active={"movies-card__save-icon_active"}/>
-            <MoviesCard image={image9} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image10} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image11} active={"movies-card__save-icon_active"}/>
-            <MoviesCard image={image12} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image13} active={"movies-card__save-icon_active"}/>
-            <MoviesCard image={image14} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image15} active={"movies-card__save-icon"}/>
-            <MoviesCard image={image16} active={"movies-card__save-icon_active"}/></>
+            ) : (
+                < >
+                    <MoviesCard image={image1} active={"movies-card__save-icon_active"} />
+                    <MoviesCard image={image2} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image3} active={"movies-card__save-icon_active"} />
+                    <MoviesCard image={image4} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image5} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image6} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image7} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image8} active={"movies-card__save-icon_active"} />
+                    <MoviesCard image={image9} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image10} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image11} active={"movies-card__save-icon_active"} />
+                    <MoviesCard image={image12} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image13} active={"movies-card__save-icon_active"} />
+                    <MoviesCard image={image14} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image15} active={"movies-card__save-icon"} />
+                    <MoviesCard image={image16} active={"movies-card__save-icon_active"} /></>
             )}
-        </main>
+        </section>
     );
 }
 
