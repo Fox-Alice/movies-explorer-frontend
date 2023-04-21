@@ -1,31 +1,16 @@
 .register {
-    padding: 0 9.37%;
+    /* padding: 0 9.37%; */
+    margin: auto;
+    max-width: 260px;
     display: flex;
     flex-direction: column;
     background-color: #202020;
+    min-height: 100vh;
 }
 
-@media screen and (max-width: 790px) and (min-width: 574px) {
+@media screen and (min-width: 574px) {
     .register {
-        padding: 0 24.21%;
-    }
-}
-
-@media screen and (max-width: 1024px) and (min-width: 790px) {
-    .register {
-        padding: 0 29%;
-    }
-}
-
-@media screen and (max-width: 1280px) and (min-width: 1024px) {
-    .register {
-        padding: 0 32%;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .register {
-        padding: 0 34.53%;
+        max-width: 396px;
     }
 }
 

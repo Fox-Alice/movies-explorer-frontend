@@ -6,11 +6,12 @@ import Techs from '../Techs/Techs';
 import AboutMe from '../AboutMe/AboutMe';
 import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
+import './Main.css'
 
 function Main() {
     return (
-        <section className="main">
-            <Header header="header" />
+        <div className="main">
+            <Header header="header main__header" />
             <main>
                 <Promo />
                 <NavTab />
@@ -20,7 +21,7 @@ function Main() {
                 <Portfolio />
             </main>
             <Footer />
-        </section>
+        </div>
     );
 }
 

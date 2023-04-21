@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 
 function Movies() {
     return (
-        <section className="movies">
+        <div className="movies">
             <Header header="header movies__header" />
             <main>
                 <SearchForm />
@@ -15,7 +15,7 @@ function Movies() {
                 <button className="movies__more-button" type="submit">Ещё</button>
             </main>
             <Footer />
-        </section>
+        </div>
     );
 }
 

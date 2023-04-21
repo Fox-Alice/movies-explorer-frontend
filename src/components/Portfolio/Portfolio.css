@@ -90,3 +90,7 @@
 .portfolio__list {
     list-style-type: none;
 }
+
+.portfolio__list-container {
+    padding: 0;
+}

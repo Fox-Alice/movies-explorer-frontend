@@ -6,14 +6,14 @@ import Footer from '../Footer/Footer';
 
 function SavedMovies() {
     return (
-        <section className="movies saved-movies">
+        <div className="movies saved-movies">
             <Header header="header movies__header" />
             <main>
                 <SearchForm />
                 <MoviesCardList isSavedMovies={true} />
             </main>
             <Footer />
-        </section>
+        </div>
     );
 }
 

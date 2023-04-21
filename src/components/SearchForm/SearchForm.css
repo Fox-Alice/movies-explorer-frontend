@@ -5,7 +5,7 @@
 
 @media screen and (max-width: 768px) and (min-width: 600px) {
     .search-form {
-        padding: 80px 30px 10px;
+        padding: 80px 0 10px;
     }
 }
 
@@ -13,7 +13,7 @@
     .search-form {
         margin: auto;
         max-width: 1140px;
-        padding: 70px 70px 10px 70px;
+        padding: 70px 0 10px 0;
     }
 }
 

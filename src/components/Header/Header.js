@@ -12,46 +12,22 @@ function Header({ header }
     <header className={header}>
       {page === "/" ? (
         <>
-          <img
-            className="header__logo"
-            src={logo}
-            alt="Логотип проекта movie-explorer"
-          />
+          <img className="header__logo" src={logo} alt="Логотип проекта movie-explorer" />
           <Switch>
             <Route path="/">
-              <div>
-                <Link
-                  to="/signup"
-                  className="header__signup-link"
-                >
-                  Регистрация
+              <div className="header__link-container">
+                <Link to="/signup" className="header__signup-link" >Регистрация</Link>
+                <Link to="/signin" className="header__signin-link" >
+                  <div className="header__button" >Войти</div>
                 </Link>
-                <button
-                  className="header__button"
-                  aria-label="save"
-                  type="submit"
-                >
-                  <Link
-                    to="/signin"
-                    className="header__signin-link"
-                  >Войти
-                  </Link>
-                </button>
               </div>
             </Route>
           </Switch>
         </>
       ) : (
         <>
-          <Link
-            exact to="/"
-            className="header__link"
-          >
-            <img
-              className="header__logo"
-              src={logo}
-              alt="Логотип проекта movie-explorer"
-            />
+          <Link exact to="/" className="header__link" >
+            <img className="header__logo" src={logo} alt="Логотип проекта movie-explorer" />
           </Link>
           <nav className="header__burger-button">
           </nav>

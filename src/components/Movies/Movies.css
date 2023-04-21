@@ -1,4 +1,3 @@
-
 .movies__header {
     background-color: #202020;
 }
@@ -15,11 +14,13 @@
 }
 
 .movies {
+    margin: auto;
+    max-width: 93.75%;
     background: #202020;
 }
 
 .movies__more-button {
-    width: 300px;
+    width: 100%;
     height: 36px;
     background: #2F2F2F;
     border: none;
@@ -30,12 +31,6 @@
     color: #FFFFFF;
     margin: 0 auto;
     display: block;
-}
-
-@media screen and (max-width: 1140px) and (min-width: 708px){
-    .movies__more-button {
-        width: 708px;
-    }
 }
 
 @media screen and (min-width: 1141px){
