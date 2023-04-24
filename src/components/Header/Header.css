@@ -1,0 +1,121 @@
+.header__signup-link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 321px) {
+    .header__signup-link {
+        font-size: 12px;
+    }
+}
+
+.header__signin-link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 16px;
+    text-decoration: none;
+    color: #000;
+}
+
+@media screen and (min-width: 321px) {
+    .header__signin-link {
+        font-size: 12px;
+    }
+}
+
+.header {
+    max-width: 97.34%;
+    max-height: 74px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+@media screen and (min-width: 321px) {
+    .header {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .header {
+        max-width: 1140px;
+    }
+}
+
+.page {
+    height: 100%;
+    background-color: #202020;
+}
+
+.header__logo {
+    margin: 18px 0;
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .header__logo {
+        margin: 18px 0;
+    }
+}
+
+.header__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0 24px 14px;
+    background: #3DDC84;
+    border-radius: 3px;
+    border: none;
+    min-width: 54px;
+    min-height: 26px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .header__button {
+        margin: 21px 30px;
+        min-width: 76px;
+        min-height: 32px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .header__button {
+        width: 76px;
+        height: 32px;
+        margin: 21px 70px 21px 30px;
+    }
+}
+
+.header__burger-button {
+    cursor: pointer;
+    background: url(../../images/header__burger-button.svg) no-repeat;
+    min-width: 40px;
+    min-height: 43px;
+    margin: 17px 0;
+}
+
+@media screen and (min-width: 769px) {
+    .header__burger-button {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .header__burger-button {
+        width: 43px;
+        height: 43px;
+        margin: 15px 0;
+    }
+}
+
+.header__link-container {
+    display: flex;
+    align-items: center;
+}

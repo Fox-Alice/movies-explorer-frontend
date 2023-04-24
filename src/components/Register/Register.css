@@ -1,0 +1,186 @@
+.register {
+    /* padding: 0 9.37%; */
+    margin: auto;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    background-color: #202020;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 574px) {
+    .register {
+        max-width: 396px;
+    }
+}
+
+.register__logo {
+    margin: 56px auto 50px;
+    width: 38px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 574px) {
+    .register__logo {
+        margin: 232px 0 40px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .register__logo {
+        margin: 70px 0 40px;
+    }
+}
+
+.register__greeteng {
+    margin: 0;
+}
+
+@media screen and (min-width: 574px) {
+    .register__greeteng {
+        text-align: start;
+    }
+}
+
+.register__form {
+    margin: 75px 0 0;
+}
+
+@media screen and (min-width: 574px) {
+    .register__form {
+        padding: 0;
+    }
+}
+
+.register__info {
+    margin: 10px 0 12px;
+    font-size: 10px;
+    color: #8B8B8B;
+    line-height: 12px;
+}
+
+@media screen and (min-width: 768px) {
+    .register__form {
+        padding: 0;
+        margin: 35px 0 0;
+    }
+}
+
+.register__input {
+    width: 88.4%;
+    background: #2F2F2F;
+    border: 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #FFFFFF;
+    line-height: 16px;
+}
+
+@media screen and (min-width: 574px) and (max-width: 768px) {
+    .register__input {
+        width: 91.8%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .register__input {
+        width: 92.4%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .register__input {
+        width: 95.4%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .register__input {
+        width: 92.4%;
+    }
+}
+
+.form__input-error {
+    font-size: 10px;
+    color: #EE3465;
+    line-height: 12px;
+}
+
+.register__input-error {
+    color: #EE3465;
+}
+
+.register__button {
+    background: #4285F4;
+    border-radius: 3px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 12px;
+    border: 0;
+    height: 45px;
+    margin: 150px 0 14px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 574px) {
+    .register__button {
+        margin: 65px 0 16px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .register__button {
+        margin: 69px 0 16px;
+    }
+}
+
+.register__question {
+    margin: 0 7px 0 0;
+    font-size: 12px;
+    text-align: center;
+    color: #8B8B8B;
+    line-height: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .register__question {
+        margin: 0 10px 0 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.register__signin-link {
+    font-size: 12px;
+    text-align: center;
+    color: #4285F4;
+    line-height: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .register__signin-link {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.register__container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 574px) {
+    .register__container {
+        padding-bottom: 232px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .register__container {
+        padding-bottom: 70px;
+    }
+}

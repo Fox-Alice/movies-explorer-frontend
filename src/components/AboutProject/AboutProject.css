@@ -1,0 +1,217 @@
+.title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    font-style: normal;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    margin: 0 0 28px;
+    padding: 70px 0 0 0;
+}
+
+@media screen and (min-width: 321px) {
+    .title {
+        font-size: 22px;
+        line-height: 27px;
+        padding: 90px 0 0 0;
+        margin: 0 0 23px;
+
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .title {
+        padding: 110px 0 0 0;
+    }
+}
+
+
+
+.block {
+    padding: 0 4.375%;
+}
+
+.about-project {
+    background-color: #202020;
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .block {
+        padding: 0 6.51% 11.06%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .block {
+        padding: 0 5.46% 6.64%;
+    }
+}
+
+.border {
+    margin: 0;
+    height: 1px;
+    border: none;
+    min-width: 284px;
+    background: #DADADA;
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .border {
+        max-width: 668px;
+    }
+}
+
+.subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    margin: 60px 0 16px;
+}
+
+@media screen and (min-width: 769px) {
+    .subtitle {
+        font-size: 20px;
+        line-height: 24px;
+        margin: 0;
+
+    }
+}
+
+.content {
+    font-style: normal;
+    font-size: 11px;
+    line-height: 16px;
+    color: #FFFFFF;
+    font-weight: 400;
+    margin: 0 0 56px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .content {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0;
+    }
+}
+
+.about-project__content:last-child {
+    margin: 0 0 60px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+    .content:last-child {
+        margin: 0 0 93px;
+    }
+}
+
+.about-project__time-container {
+    justify-content: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 34.25% 63%;
+    grid-template-rows: repeat(2, 35px);
+    align-items: center;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+    .about-project__time-container {
+        grid-template-columns: 20.9% 79%;
+        grid-template-rows: repeat(2, 36px);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .about-project__time-container {
+        grid-template-columns: 20% 80%;
+        grid-template-rows: repeat(2, 36px);
+    }
+}
+
+.about-project__time {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 13px;
+    background-color: #303030;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) and (min-width: 500px) {
+    .about-project__time {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .about-project__time {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.about-project__time:first-child {
+    background-color: #3DDC84;
+    color: #000;
+}
+
+.about-project__develop {
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 13px;
+    background-color: #202020;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) and (min-width: 500px) {
+    .about-project__develop {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .about-project__develop {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 500px) {
+    .about-project__grid-container {
+        margin: 70px 0 93px;
+        display: grid;
+        grid-template-columns: repeat(2, 41.53%);
+        grid-template-rows: 118px 50px;
+        gap: 22px 30px;
+        grid-auto-flow: column;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .about-project__grid-container {
+        margin: 70px 0 93px;
+        display: grid;
+        grid-template-columns: repeat(2, 42.96%);
+        grid-template-rows: 24px 40px;
+        gap: 26px 40px;
+        grid-auto-flow: column;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .about-project__grid-container {
+        margin: 110px 0 130px;
+    }
+}
