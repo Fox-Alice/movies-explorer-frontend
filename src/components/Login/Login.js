@@ -1,12 +1,42 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { useState } from 'react';
+import useForm from '../../utils/useForm';
+
 import './Login.css';
 import logo from '../../images/header__logo.svg';
 
-const email = "pochta@yandex.ru";
+function Login({ loggedIn, onLogin }) {
 
-function Login() {
+    const {values, handleChange, errors, isValid, resetForm} = useForm();
+
+
+    // const [userData, setUserData] = useState(null);
+    
+
+    // const handleChange = (evt) => {
+    //     const { name, value } = evt.target;
+    //     setUserData({
+    //         ...userData,
+    //         [name]: value
+    //     })
+    // }
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        console.log(values);
+        if (!values) {
+            return;
+        }
+        onLogin(values);
+        console.log(loggedIn);
+        // if (loggedIn) {
+        //     return <Redirect to="/movies" />
+        // }
+    }
 
     return (
+        <>
+        {loggedIn ?  (<Redirect to="/movies" />) : (
         <section className="login register">
             <img
                 className="register__logo login__logo"
@@ -14,25 +44,53 @@ function Login() {
                 alt="Логотип проекта movie-explorer"
             />
             <h2 className="register__greeteng greeting">Рады видеть!</h2>
-            <form className="register__form">
+            <form
+                className="register__form"
+                name="register__form"
+                onSubmit={handleSubmit}
+                onReset={resetForm}
+                noValidate="">
                 <label className="register__info">E-mail
-                    <input className="register__info register__input login__input" id="email-input" type="text" name="email" defaultValue={email}></input>
-                    <span id="email-input-error" className="email-input-error form__input-error"></span>
+                    <input 
+                        className={`register__info register__input login__input ${ errors.email ? "form__input-error" : ""}`}
+                        id="email-input"
+                        type="text"
+                        name="email"
+                        onChange={(e) => handleChange(e)}
+                        defaultValue={values?.email}
+                        required=""></input>
+                        { !isValid.email &&
+                    <span id="email-input-error" className="email-input-error form__input-error">{errors.email}</span>}
                 </label>
                 <label className="register__info">Пароль
-                    <input className="register__info register__input" id="password-input" type="password" name="password"></input>
-                    <span id="password-input-error" className="password-input-error form__input-error"></span>
+                    <input
+                        defaultValue={values?.password}
+                        onChange={(e) => handleChange(e)}
+                        className={`register__info register__input ${ errors.password ? "form__input-error" : ""}`}
+                        id="password-input"
+                        type="password"
+                        name="password"
+                        required=""></input>
+                        { !isValid.password &&
+                    <span id="password-input-error" className="password-input-error form__input-error">{errors.password}</span>}
                 </label>
+            
+            <button disabled={errors.password || errors.email }
+                className="register__button login__button"
+                type="submit"
+                aria-label="save">
+                    Войти
+            </button>
             </form>
-            <button className="register__button login__button" type="submit" >Войти</button>
             <div className="register__container">
                 <p className="register__question">Еще не зарегистрированы?</p>
                 <Link to="/signup" className="register__signin-link">Регистрация
                 </Link>
             </div>
         </section>
-    );
-
+        )}
+    </>
+    )
 }
 
 export default Login;

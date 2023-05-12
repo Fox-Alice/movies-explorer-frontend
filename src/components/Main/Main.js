@@ -11,7 +11,7 @@ import './Main.css'
 function Main() {
     return (
         <div className="main">
-            <Header header="header main__header" />
+            <Header className="header main__header" />
             <main>
                 <Promo />
                 <NavTab />

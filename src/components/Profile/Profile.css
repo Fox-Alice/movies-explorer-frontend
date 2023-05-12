@@ -119,3 +119,6 @@
         padding: 16px 0 70px;
     }
 }
+
+.profile__button:disabled {
+}

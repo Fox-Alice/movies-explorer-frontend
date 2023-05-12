@@ -3,13 +3,13 @@ import { Link, Route, Switch, useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import './Header.css';
 
-function Header({ header }
+function Header({ className }
 ) {
   let location = useLocation();
   const page = location.pathname;
 
   return (
-    <header className={header}>
+    <header className={className}>
       {page === "/" ? (
         <>
           <img className="header__logo" src={logo} alt="Логотип проекта movie-explorer" />
@@ -26,7 +26,7 @@ function Header({ header }
         </>
       ) : (
         <>
-          <Link exact to="/" className="header__link" >
+          <Link to="/" className="header__link" >
             <img className="header__logo" src={logo} alt="Логотип проекта movie-explorer" />
           </Link>
           <nav className="header__burger-button">

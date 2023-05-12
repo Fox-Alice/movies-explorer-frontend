@@ -42,3 +42,8 @@
 .movies__more-button:hover {
     opacity: 0.8;
 }
+
+.movies_nothing-found {
+    color: #FFFFFF;
+    font-size: large;
+}
