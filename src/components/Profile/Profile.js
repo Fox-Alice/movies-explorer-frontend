@@ -1,4 +1,5 @@
-import { useContext, useState, useEffect, Redirect } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import useForm from '../../utils/useForm';
 import Header from '../Header/Header';
