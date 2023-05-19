@@ -20,6 +20,7 @@
     .movies-card {
         width: 270px;
         margin: 0;
+        height: 218px;
     }
 }
 
@@ -64,7 +65,7 @@
 
 .movies-card__save-icon_active {
     background-image: url(../../images/movies-card__save-icon-active.svg);
-    width: 18px;
+    width: 22px;
     height: 20px;
     background-position: top;
     background-repeat: no-repeat;

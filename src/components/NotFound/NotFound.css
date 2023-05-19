@@ -15,7 +15,6 @@
     }
 }
 
-
 .not-found__number {
     margin: 0;
     font-weight: 400;
@@ -32,7 +31,6 @@
         font-size: 140px;
     }
 }
-
 
 .not-found__description{
     margin: 10px 0 284px;
@@ -51,6 +49,8 @@
 }
 
 .not-found__button {
+    text-decoration: none;
+    text-align: center;
     padding: 0;
     border: 0;
     background-color: #202020;
@@ -58,7 +58,6 @@
     color: #4285F4;
     font-size: 12px;
     cursor: pointer;
-    margin: auto;
     display: block;
 }
 

@@ -1,97 +1,84 @@
+import { useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
-import './Movies.css';
 import Header from '../Header/Header'
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import { useCallback, useState } from 'react';
-import { useResize } from '../../utils/useResize';
+import './Movies.css';
 
+function Movies({
+    moviesCards,
+    onCardClick,
+    onCardSave,
+    onCardDeleteSave,
+    savedMovies,
+    handleBurgerOpen,
+    checked,
+    changeCheckbox,
+    setChecked,
+    itemsToShow,
+    showMore
+}) {
 
-
-function Movies({ moviesCards, onCardClick, onCardSave, onCardDeleteSave, savedMovies }) {
-
-    const [value, setValue] = useState(localStorage.getItem('keyword'));
-    const [itemsToShow, setIemsToShow] = useState(5);
-    // const [checked, setChecked] = useState(false);
-
-    // const changeCheckbox = useCallback(() => {
-    //    setChecked(!checked);
-    // }, [checked])
-    const {isScreenMd, isScreenXl} = useResize();
-
+    const [value, setValue] = useState(localStorage.getItem('keyword') || '');
+    const [error, setError] = useState("Нужно ввести ключевое слово");
 
     const filterMovies = moviesCards?.filter(movie => {
         return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
-      })
+    })
 
-    //   const filterShort = moviesCards?.filter(movie => {
-    //     return movie?.duration < 40} )
+    const filtermoviesdur = filterMovies?.filter(movie => {
+        return movie?.duration < 40
+    })
 
-    // const filterMoviesShort = filterMovies.filter((movie) => { return movie?.duration < 40} )
-
-      const handleChangeFilterMovies = (e) => {
+    const handleChangeFilterMovies = (e) => {
         setValue(e.target.value);
-    } 
-
-        const handleSubmit = (e) => {
-        e.preventDefault();
-        setValue(value);
-        // setChecked(checked);
-        localStorage.setItem('keyword', value);
-        // localStorage.setItem('checkbox', checked);
-
+        if (e.target.value) {
+            setError(null)
+        } else
+            setError('Нужно ввести ключевое слово');
     }
 
-    // const search = (filterMovies) => {
-    //     if (!checked) {
-    //         let filterMovies = moviesCards?.filter(movie => {
-    //             return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
-    //           })
-    //     } else {
-    //         let filterMovies = (moviesCards?.filter(movie => {
-    //             return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
-    //           })).filter((movie) => { return movie?.duration < 40} )
-    //     }
-    //     return filterMovies;
-    // }
-
-    const showMore = () => {
-        if (isScreenMd) {
-            setIemsToShow(8);            
-        }
-        if (isScreenXl) {
-            setIemsToShow(16);
-        }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setValue(value);
+        setChecked(checked);
+        localStorage.setItem('keyword', value);
+        localStorage.setItem('checkbox', checked);
     }
 
     return (
         <div className="movies">
-            <Header className="header movies__header" />
+            <Header className="header movies__header"
+                handleBurgerOpen={handleBurgerOpen} />
             <main>
-                <SearchForm 
-                onChange={handleChangeFilterMovies}
-                onSubmit={handleSubmit}
-                value={value}
-                moviesArray={filterMovies}
-                // checked={checked}
-                // onCheck={changeCheckbox}
+                <SearchForm
+                    onChange={handleChangeFilterMovies}
+                    onSubmit={handleSubmit}
+                    value={value}
+                    filtermoviesdur={filtermoviesdur}
+                    checked={checked}
+                    onChangeCheckbox={changeCheckbox}
+                    error={error}
+                    setError={setError}
                 />
-                {value && filterMovies !== null ? (
+                {value && filterMovies.length !== 0 && filtermoviesdur.length !== 0 ? (
                     <>
-                <MoviesCardList isSavedMovies={false}
-                        moviesCards={filterMovies}
-                        savedMovies={savedMovies}
-                        // isSaved={isSaved}
-                        onCardClick={onCardClick}
-                        onCardSave={onCardSave}
-                        onCardDeleteSave={onCardDeleteSave}
+                        <MoviesCardList isSavedMovies={false}
+                            moviesCards={checked ? filtermoviesdur : filterMovies}
+                            savedMovies={savedMovies}
+                            onCardClick={onCardClick}
+                            onCardSave={onCardSave}
+                            onCardDeleteSave={onCardDeleteSave}
+                            itemsToShow={itemsToShow}
                         />
-                        <button className="movies__more-button" type="submit">Ещё</button>
-                    </>    
-                        ) : (
-                            <p className='movies_nothing-found'>Ничего не найдено...</p>
-                            
-                            )}
+                        <button
+                            className={`movies__more-button ${((filterMovies || filtermoviesdur).length <= itemsToShow) ? 'movies__more-button_disabled' : ''} `}
+                            type="submit"
+                            onClick={showMore}>Ещё</button>
+                    </>
+                ) : (
+                    <p className='movies_nothing-found'>Ничего не найдено...</p>
+                )}
             </main>
             <Footer />
         </div>

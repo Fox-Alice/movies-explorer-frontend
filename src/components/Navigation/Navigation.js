@@ -1,10 +1,20 @@
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
-function Navigation() {
+function Navigation({ active, setActive}) {
+
+  const handleCloseMenu = () => {
+    setActive(false)
+  }
+
     return (
-        <nav className="navigation">
-          <button className="navigation__close-icon" ></button>
+        <nav className=
+        {`navigation ${active ? 'navigation_active' : ''}`}
+        onClick={handleCloseMenu}
+        >
+
+          <button className="navigation__close-icon" onClick={handleCloseMenu} ></button>
+
             <div className="navigation__link-container">
             <NavLink
                 exact to="/"

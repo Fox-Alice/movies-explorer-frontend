@@ -1,5 +1,5 @@
-// import { getMovies } from "../../../movies-explorer-api/controllers/movies";
 import { moviesApiConfig } from "./constants";
+
 class Api {
     constructor(options) {
         this._url = options.url;
@@ -14,14 +14,8 @@ class Api {
     }
 
     getMovies() {
-        // const token = localStorage.getItem('jwt');
-
         return fetch(`${this._url}`, {
-            // headers: {
-            //     'authorization': `Bearer ${token}`,
-            // }
         })
-
             .then(this._onResponse)
     }
 }

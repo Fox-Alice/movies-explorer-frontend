@@ -19,7 +19,7 @@ function Register({ loggedIn, onRegister, errorMessage }) {
         if (values) {
             let { name, email, password } = values;
             onRegister({name, email, password});
-            console.log(values);
+            // console.log(values);
         }
     }
 
