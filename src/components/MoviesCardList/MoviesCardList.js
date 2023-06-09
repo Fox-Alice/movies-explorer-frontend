@@ -35,7 +35,7 @@ function MoviesCardList({ itemsToShow, moviesCards, onCardClick, onCardSave, onC
                 </>
             ) : (
                 <>
-                    {savedMovies.slice(0, itemsToShow).map((item) => (
+                    {savedMovies?.slice(0, itemsToShow).map((item) => (
                         <MoviesCard
                             key={item._id}
                             item={item}
@@ -50,6 +50,7 @@ function MoviesCardList({ itemsToShow, moviesCards, onCardClick, onCardSave, onC
                             movieId={item.movieId}
                             nameRU={item.nameRU}
                             nameEN={item.nameEN}
+                            moviesCards={moviesCards}
                             savedMovies={savedMovies}
                             onCardDeleteClick={onCardDeleteClick}
                         />

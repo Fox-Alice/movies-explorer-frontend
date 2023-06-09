@@ -20,30 +20,37 @@ function Movies({
 }) {
 
     const [value, setValue] = useState(localStorage.getItem('keyword') || '');
-    const [error, setError] = useState("Нужно ввести ключевое слово");
+    const [error, setError] = useState(null);
+    const [emptyField, setEmptyField] = useState(false);
+    const [searchResults, setSearchResults] = useState(JSON.parse(localStorage.getItem('filterMovies')) || []);
 
-    const filterMovies = moviesCards?.filter(movie => {
-        return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
-    })
-
-    const filtermoviesdur = filterMovies?.filter(movie => {
+    const filtermoviesdur = searchResults?.filter(movie => {
         return movie?.duration < 40
     })
 
     const handleChangeFilterMovies = (e) => {
         setValue(e.target.value);
-        if (e.target.value) {
-            setError(null)
-        } else
-            setError('Нужно ввести ключевое слово');
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setValue(value);
-        setChecked(checked);
-        localStorage.setItem('keyword', value);
-        localStorage.setItem('checkbox', checked);
+        if (!value) {
+            setEmptyField(true);
+            setError('Нужно ввести ключевое слово');
+            return
+        } else {
+            setError(null);
+            setValue(value);
+            setChecked(checked);
+            const filterMovies = moviesCards?.filter(movie => {
+                return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
+            })
+            setSearchResults(filterMovies);
+            localStorage.setItem('keyword', value)
+            localStorage.setItem('filterMovies', JSON.stringify(filterMovies));
+            localStorage.setItem('checkbox', checked);
+            console.log(searchResults.length);
+        }
     }
 
     return (
@@ -60,21 +67,28 @@ function Movies({
                     onChangeCheckbox={changeCheckbox}
                     error={error}
                     setError={setError}
+                    emptyField={emptyField}
                 />
-                {value && filterMovies.length !== 0 && filtermoviesdur.length !== 0 ? (
+
+                {!emptyField || (filtermoviesdur || searchResults).length !== 0 ? (
                     <>
-                        <MoviesCardList isSavedMovies={false}
-                            moviesCards={checked ? filtermoviesdur : filterMovies}
+                        <MoviesCardList
+                            moviesCards={checked ? filtermoviesdur : searchResults}
                             savedMovies={savedMovies}
                             onCardClick={onCardClick}
                             onCardSave={onCardSave}
                             onCardDeleteSave={onCardDeleteSave}
                             itemsToShow={itemsToShow}
-                        />
+                        /> {!checked && searchResults.length >= itemsToShow && 
                         <button
-                            className={`movies__more-button ${((filterMovies || filtermoviesdur).length <= itemsToShow) ? 'movies__more-button_disabled' : ''} `}
+                            className='movies__more-button'
                             type="submit"
-                            onClick={showMore}>Ещё</button>
+                            onClick={showMore}>Ещё</button>}
+                            {checked && filtermoviesdur.length >= itemsToShow && 
+                        <button
+                            className='movies__more-button'
+                            type="submit"
+                            onClick={showMore}>Ещё</button>}
                     </>
                 ) : (
                     <p className='movies_nothing-found'>Ничего не найдено...</p>

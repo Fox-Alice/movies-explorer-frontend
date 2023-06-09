@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import {omit} from 'lodash'
+import { currentUser } from '../contexts/CurrentUserContext';
 
 const useForm = (callback) => {
 
@@ -10,7 +11,7 @@ const useForm = (callback) => {
 
     const validate = (event, name, value) => {
         //A function to validate each input values
-
+console.log(value);
         switch (name) {
             case 'name':
                 if(value.length < 4){
@@ -28,6 +29,19 @@ const useForm = (callback) => {
                     setErrors(newObj);
                     
                 }
+                // if (value !== currentUser.name) {
+                //     setErrors({
+                //         ...errors,
+                //         name:'Имя пользователя совпадает'
+                //     })
+                // } else{
+                //     // set the error state empty or remove the error for username input
+
+                //     //omit function removes/omits the value from given object and returns a new object
+                //     let newObj = omit(errors, "name");
+                //     setErrors(newObj);
+                    
+                // }
                 break;
         
             case 'email':
@@ -47,12 +61,12 @@ const useForm = (callback) => {
             break;
             
             case 'password':
-                if(
-                    !new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/).test(value)
-                ){
+                if(value.length < 4){
+                    // we will set the error state
+
                     setErrors({
                         ...errors,
-                        password:'Password should contains atleast 8 charaters and containing uppercase,lowercase and numbers'
+                        password:'Password atleast have 5 letters'
                     })
                 }else{
 

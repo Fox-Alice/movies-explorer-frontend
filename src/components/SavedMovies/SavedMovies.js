@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import Header from '../Header/Header';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -14,35 +14,43 @@ function SavedMovies({
     setChecked,
     changeCheckbox,
     itemsToShow,
-    showMore
+    showMore,
+    setSavedMovies
 }) {
 
     const [value, setValue] = useState('');
     const [error, setError] = useState(null);
+    const [emptyField, setEmptyField] = useState(false);
+    // const [formKey, setFormKey] = useState(10);
+    const [searchResults, setSearchResults] = useState(savedMovies);
 
-    const filterMovies = savedMovies?.filter(movie => {
-        return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
-    });
-
-    const filtermoviesdur = filterMovies?.filter(movie => {
+    const filtermoviesdur = savedMovies?.filter(movie => {
         return movie?.duration < 40
     });
 
     const handleChangeFilterMovies = (e) => {
         setValue(e.target.value);
-        if (e.target.value) {
-            setError(null)
-        } else {
-            setError("Нужно ввести ключевое слово");
-        }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!value)
-            return;
-        setValue(value);
-        setChecked(checked);
+        if (!value) {
+            setEmptyField(true);
+            setError('Нужно ввести ключевое слово');
+            return
+        } else {
+            setError(null);
+            setValue(value);
+            setChecked(checked);
+            localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+            let filterMovies = savedMovies?.filter(movie => {
+                return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
+            });
+            setSavedMovies(filterMovies);
+            localStorage.setItem('checkbox', checked);
+            // setEmptyField(true);
+            console.log(emptyField);
+        }        
     }
 
     return (
@@ -59,23 +67,50 @@ function SavedMovies({
                     onChangeCheckbox={changeCheckbox}
                     error={error}
                     setError={setError}
+                    emptyField={emptyField}
                 />
-                {filterMovies && filtermoviesdur ? (
+                {!emptyField || filtermoviesdur.length !== 0 || savedMovies?.length !== 0 ? (
                     <>
                         <MoviesCardList
-                            savedMovies={checked ? filtermoviesdur : filterMovies}
+                            savedMovies={checked ? filtermoviesdur : savedMovies}
                             onCardClick={onCardClick}
                             onCardDeleteClick={onCardDeleteClick}
                             itemsToShow={itemsToShow}
                         />
-                        <button
-                            className={`movies__more-button ${((filterMovies || filtermoviesdur).length <= itemsToShow) ? 'movies__more-button_disabled' : ''}`}
-                            type="submit"
-                            onClick={showMore}>Ещё</button>
-                    </>
+                        {!checked && savedMovies?.length >= itemsToShow &&
+                            <button
+                                className='movies__more-button'
+                                type="submit"
+                                onClick={showMore}>Ещё</button>
+                        }
+                        {checked && filtermoviesdur.length >= itemsToShow &&
+                            <button
+                                className='movies__more-button'
+                                type="submit"
+                                onClick={showMore}>Ещё</button>}                        </>
                 ) : (
                     <p className='movies_nothing-found'>Ничего не найдено...</p>
                 )}
+                {emptyField &&
+                    <>
+                        <MoviesCardList
+                            savedMovies={() => setSavedMovies(JSON.parse(localStorage.getItem('saved-movies')) || [])}
+                            onCardClick={onCardClick}
+                            onCardDeleteClick={onCardDeleteClick}
+                            itemsToShow={itemsToShow}
+                        />
+                        {!checked && savedMovies?.length >= itemsToShow &&
+                            <button
+                                className='movies__more-button'
+                                type="submit"
+                                onClick={showMore}>Ещё</button>
+                        }
+                        {checked && filtermoviesdur.length >= itemsToShow &&
+                            <button
+                                className='movies__more-button'
+                                type="submit"
+                                onClick={showMore}>Ещё</button>}                        </>
+                }
             </main>
             <Footer />
         </div>

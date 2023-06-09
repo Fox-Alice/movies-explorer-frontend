@@ -14,6 +14,7 @@
 }
 
 .movies {
+    height: 100%;
     margin: auto;
     max-width: 93.75%;
     background: #202020;

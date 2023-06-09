@@ -32,7 +32,7 @@ function MoviesCard({ item, onCardClick, onCardSave, onCardDeleteClick, savedMov
                     </button>
                 ) : (
                     <button className="movies-card__remove-icon"
-                        onClick={handleDeleteClick}>
+                        onClick={() => handleDeleteClick(item)}>
                     </button>
                 )}
             </div>

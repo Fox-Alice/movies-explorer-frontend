@@ -5,7 +5,7 @@ import useForm from '../../utils/useForm';
 import Header from '../Header/Header';
 import './Profile.css';
 
-function Profile({ onUpdateUser, onLogout }) {
+function Profile({ onUpdateUser, onLogout, errorMessage }) {
 
   const currentUser = useContext(CurrentUserContext);
 
@@ -17,6 +17,7 @@ function Profile({ onUpdateUser, onLogout }) {
   useEffect(() => {
     setName(values?.name);
     setEmail(values?.about)
+    
   }, [values])
 
   const handleSubmit = (evt) => {
@@ -51,7 +52,7 @@ function Profile({ onUpdateUser, onLogout }) {
               </input>
             </label>
             {!isValid.name &&
-              <span id="name-input-error" className="name-input-error form__input-error">{errors.name}</span>}
+              <span id="name-input-error" className="profile__error name-input-error form__input-error">{errors.name}</span>}
             <hr className="profile__border border"></hr>
             <label className="profile__info">E-mail
               <input
@@ -64,10 +65,12 @@ function Profile({ onUpdateUser, onLogout }) {
               </input>
             </label>
             {!isValid.email &&
-              <span id="email-input-error" className="email-input-error form__input-error">{errors.email}</span>}
+              <span id="email-input-error" className="profile__error email-input-error form__input-error">{errors.email}</span>}
+                {errorMessage &&
+                  <span id="profile__error" className="profile__error register__error form__input-error">{errorMessage}</span>}
             {(!values.name && !values.email) ?
               <a href="#edit" className="profile__button">Редактировать</a> :
-              <button disabled={errors.name || errors.email}
+              <button disabled={errors.name || errors.email || errorMessage}
                 className="profile__save-button register__button"
                 type="submit"
                 aria-label="save">Сохранить

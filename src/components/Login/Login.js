@@ -3,29 +3,31 @@ import useForm from '../../utils/useForm';
 import logo from '../../images/header__logo.svg';
 import './Login.css';
 
-function Login({ loggedIn, onLogin }) {
+function Login({ loggedIn, onLogin, errorMessage }) {
 
     const { values, handleChange, errors, isValid, resetForm } = useForm();
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(values);
+        // console.log(values);
         if (!values) {
             return;
         }
         onLogin(values);
-        console.log(loggedIn);
+        // console.log(loggedIn);
     }
 
     return (
         <>
             {loggedIn ? (<Redirect to="/movies" />) : (
                 <section className="login register">
-                    <img
-                        className="register__logo login__logo"
-                        src={logo}
-                        alt="Логотип проекта movie-explorer"
-                    />
+                    <Link to="/" className="header__link" >
+                        <img
+                            className="register__logo login__logo"
+                            src={logo}
+                            alt="Логотип проекта movie-explorer"
+                        />
+                    </Link>
                     <h2 className="register__greeteng greeting">Рады видеть!</h2>
                     <form
                         className="register__form"
@@ -57,8 +59,10 @@ function Login({ loggedIn, onLogin }) {
                             {!isValid.password &&
                                 <span id="password-input-error" className="password-input-error form__input-error">{errors.password}</span>}
                         </label>
+                        {errorMessage &&
+                            <span id="register__error" className="register__error form__input-error">{errorMessage}</span>}
 
-                        <button disabled={errors.password || errors.email}
+                        <button disabled={!values?.email || !values?.password || errors.password || errors.email}
                             className="register__button login__button"
                             type="submit"
                             aria-label="save">
