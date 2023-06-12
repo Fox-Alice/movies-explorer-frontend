@@ -15,16 +15,15 @@ function SavedMovies({
     changeCheckbox,
     itemsToShow,
     showMore,
-    setSavedMovies
+    searchResults,
+    setSearchResults
 }) {
 
     const [value, setValue] = useState('');
     const [error, setError] = useState(null);
     const [emptyField, setEmptyField] = useState(false);
-    // const [formKey, setFormKey] = useState(10);
-    const [searchResults, setSearchResults] = useState(savedMovies);
 
-    const filtermoviesdur = savedMovies?.filter(movie => {
+    const filtermoviesdur = searchResults?.filter(movie => {
         return movie?.duration < 40
     });
 
@@ -42,16 +41,17 @@ function SavedMovies({
             setError(null);
             setValue(value);
             setChecked(checked);
-            localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
-            let filterMovies = savedMovies?.filter(movie => {
+            const filterMovies = savedMovies?.filter(movie => {
                 return movie?.nameRU?.toLowerCase().includes(value.toLowerCase())
             });
-            setSavedMovies(filterMovies);
+            setSearchResults(filterMovies);
             localStorage.setItem('checkbox', checked);
-            // setEmptyField(true);
-            console.log(emptyField);
-        }        
+        }
     }
+
+    useEffect(() => {
+        setSearchResults(savedMovies);
+    }, []);
 
     return (
         <div className="movies saved-movies">
@@ -69,21 +69,21 @@ function SavedMovies({
                     setError={setError}
                     emptyField={emptyField}
                 />
-                {!emptyField || filtermoviesdur.length !== 0 || savedMovies?.length !== 0 ? (
+                {filtermoviesdur?.length !== 0 || searchResults?.length !== 0 ? (
                     <>
                         <MoviesCardList
-                            savedMovies={checked ? filtermoviesdur : savedMovies}
+                            savedMovies={checked ? filtermoviesdur : searchResults}
                             onCardClick={onCardClick}
                             onCardDeleteClick={onCardDeleteClick}
                             itemsToShow={itemsToShow}
                         />
-                        {!checked && savedMovies?.length >= itemsToShow &&
+                        {!checked && searchResults?.length >= itemsToShow &&
                             <button
                                 className='movies__more-button'
                                 type="submit"
                                 onClick={showMore}>Ещё</button>
                         }
-                        {checked && filtermoviesdur.length >= itemsToShow &&
+                        {checked && filtermoviesdur?.length >= itemsToShow &&
                             <button
                                 className='movies__more-button'
                                 type="submit"
@@ -91,26 +91,6 @@ function SavedMovies({
                 ) : (
                     <p className='movies_nothing-found'>Ничего не найдено...</p>
                 )}
-                {emptyField &&
-                    <>
-                        <MoviesCardList
-                            savedMovies={() => setSavedMovies(JSON.parse(localStorage.getItem('saved-movies')) || [])}
-                            onCardClick={onCardClick}
-                            onCardDeleteClick={onCardDeleteClick}
-                            itemsToShow={itemsToShow}
-                        />
-                        {!checked && savedMovies?.length >= itemsToShow &&
-                            <button
-                                className='movies__more-button'
-                                type="submit"
-                                onClick={showMore}>Ещё</button>
-                        }
-                        {checked && filtermoviesdur.length >= itemsToShow &&
-                            <button
-                                className='movies__more-button'
-                                type="submit"
-                                onClick={showMore}>Ещё</button>}                        </>
-                }
             </main>
             <Footer />
         </div>

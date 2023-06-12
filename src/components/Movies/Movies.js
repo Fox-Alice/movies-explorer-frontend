@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import './Movies.css';
+import { shortFilmsDuration } from '../../utils/constants';
 
 function Movies({
     moviesCards,
@@ -25,7 +26,7 @@ function Movies({
     const [searchResults, setSearchResults] = useState(JSON.parse(localStorage.getItem('filterMovies')) || []);
 
     const filtermoviesdur = searchResults?.filter(movie => {
-        return movie?.duration < 40
+        return movie?.duration < shortFilmsDuration
     })
 
     const handleChangeFilterMovies = (e) => {
@@ -49,7 +50,6 @@ function Movies({
             localStorage.setItem('keyword', value)
             localStorage.setItem('filterMovies', JSON.stringify(filterMovies));
             localStorage.setItem('checkbox', checked);
-            console.log(searchResults.length);
         }
     }
 
@@ -79,16 +79,16 @@ function Movies({
                             onCardSave={onCardSave}
                             onCardDeleteSave={onCardDeleteSave}
                             itemsToShow={itemsToShow}
-                        /> {!checked && searchResults.length >= itemsToShow && 
-                        <button
-                            className='movies__more-button'
-                            type="submit"
-                            onClick={showMore}>Ещё</button>}
-                            {checked && filtermoviesdur.length >= itemsToShow && 
-                        <button
-                            className='movies__more-button'
-                            type="submit"
-                            onClick={showMore}>Ещё</button>}
+                        /> {!checked && searchResults.length >= itemsToShow &&
+                            <button
+                                className='movies__more-button'
+                                type="submit"
+                                onClick={showMore}>Ещё</button>}
+                        {checked && filtermoviesdur.length >= itemsToShow &&
+                            <button
+                                className='movies__more-button'
+                                type="submit"
+                                onClick={showMore}>Ещё</button>}
                     </>
                 ) : (
                     <p className='movies_nothing-found'>Ничего не найдено...</p>

@@ -67,10 +67,13 @@ function Profile({ onUpdateUser, onLogout, errorMessage }) {
             {!isValid.email &&
               <span id="email-input-error" className="profile__error email-input-error form__input-error">{errors.email}</span>}
                 {errorMessage &&
-                  <span id="profile__error" className="profile__error register__error form__input-error">{errorMessage}</span>}
+                  <span id="profile__error" className="profile__error register__error form__input-error">{errorMessage || 'Server error'}</span>}
+                {(values.name === currentUser?.name || values.email === currentUser?.email) &&
+                  <span id="profile__error" className="profile__error register__error form__input-error">{'ВВеденные данные соответствуют текущим данным'}</span>}
+
             {(!values.name && !values.email) ?
               <a href="#edit" className="profile__button">Редактировать</a> :
-              <button disabled={errors.name || errors.email || errorMessage}
+              <button disabled={errors.name || errors.email || (values.name === currentUser?.name || values.email === currentUser?.email)}
                 className="profile__save-button register__button"
                 type="submit"
                 aria-label="save">Сохранить

@@ -1,28 +1,19 @@
 import { Link, Redirect } from 'react-router-dom';
 import useForm from '../../utils/useForm';
-import { useState } from 'react';
-import * as validation from '../../utils/Validation';
 import './Register.css';
 import logo from '../../images/header__logo.svg';
 
 function Register({ loggedIn, onRegister, errorMessage }) {
 
-
-    // const formLogin = () => {
-    //     // resetForm(values);
-    //   }
     const { values, handleChange, errors, isValid, resetForm } = useForm();
-
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if (values) {
             let { name, email, password } = values;
             onRegister({ name, email, password });
-            // console.log(values);
         }
     }
-
 
     return (
         <>

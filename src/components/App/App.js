@@ -16,6 +16,15 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import api from '../../utils/MainApi';
 import * as auth from '../../utils/Auth';
 import './App.css';
+import { 
+  NUM_SM,
+  NUM_MD,
+  NUM_LG,
+  NUM_XL,
+  MORE_SM,
+  MORE_MD,
+  MORE_LG,
+  MORE_XL } from '../../utils/constants';
 
 function App() {
 
@@ -30,7 +39,8 @@ function App() {
   const [itemsToShow, setIemsToShow] = useState(5);
   const [checked, setChecked] = useState((localStorage.getItem('checkbox') === 'true'));
   const [isUserUpdate, setIsUserUpdate] = useState(false);
-  const { isScreenSm, isScreenMd, isScreenXl } = useResize();
+  const { isScreenSm, isScreenMd, isScreenLg, isScreenXl } = useResize();
+  const [searchResults, setSearchResults] = useState([]);
 
   const changeCheckbox = () => {
     setChecked(!checked);
@@ -42,29 +52,37 @@ function App() {
 
   const showMore = () => {
     if (isScreenSm) {
-      setIemsToShow(itemsToShow + 1);
+      setIemsToShow(itemsToShow + MORE_SM);
     }
     if (isScreenMd) {
-      setIemsToShow(itemsToShow + 2);
+      setIemsToShow(itemsToShow + MORE_MD);
     }
+    if (isScreenLg) {
+      setIemsToShow(itemsToShow + MORE_LG);
+    }
+
     if (isScreenXl) {
-      setIemsToShow(itemsToShow + 4);
+      setIemsToShow(itemsToShow + MORE_XL);
     }
   }
 
   useEffect(() => {
     if (isScreenSm) {
-      setIemsToShow(5);
+      setIemsToShow(NUM_SM);
     }
 
     if (isScreenMd) {
-      setIemsToShow(8);
+      setIemsToShow(NUM_MD);
+    }
+
+    if (isScreenLg) {
+      setIemsToShow(NUM_LG);
     }
 
     if (isScreenXl) {
-      setIemsToShow(16);
+      setIemsToShow(NUM_XL);
     }
-  }, [isScreenSm, isScreenMd, isScreenXl])
+  }, [isScreenSm, isScreenMd, isScreenLg, isScreenXl])
 
   const tokenCheck = useCallback(async () => {
     try {
@@ -105,7 +123,6 @@ function App() {
           nameRU: data.nameRU,
           nameEN: data.nameEN
         })
-        // localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
 
         if (savedMovies.includes(movie)) {
           throw new Error('dr');
@@ -136,8 +153,8 @@ function App() {
       await api.handleSaveDelete(data?._id);
       console.log(data);
       setSavedMovies(savedMovies.filter(item => item?._id !== data?._id));
+      setSearchResults(searchResults.filter(item => item?._id !== data?._id));
       console.log(savedMovies);
-      // localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
     } catch (err) {
       setMessage(err.message);
     } finally {
@@ -195,20 +212,17 @@ function App() {
   });
 
   function handleUpdateUser(data) {
-    // if (currentUser.name === data.name || currentUser.email === data.email) {
-    //   setMessage('Данные пользователя совпадают');
-    //   setIsUserUpdate(false);
-      // throw new Error('Данные пользователя совпадают');
-    // }  else {  
       api.editProfile(data)
       .then((res) => {   
         if (res) {      
         setCurrentUser(res);
         setIsUserUpdate(true);
         setIsTooltipPopupOpen(true);
+        setMessage(null)
       }
       })
       .catch((err) => {
+        setMessage(err);
         console.log('Error', err);
       })
     // }
@@ -221,13 +235,6 @@ function App() {
   useEffect(() => {
     setMovies(JSON.parse(localStorage.getItem('beatfilms')));
   }, []);
-
-  // useEffect(() => {
-  //   if (savedMovies?.length !== 0)
-  //   setSavedMovies(JSON.parse(localStorage.getItem('saved-movies')));
-  // }, [savedMovies]);
-
-
 
   useEffect(() => {
     !moviesCards &&
@@ -256,7 +263,9 @@ function App() {
     loggedIn &&
       api.getSavedMovies()
         .then((res) => {
-          return setSavedMovies(res)
+          setSavedMovies(res);
+          setSearchResults(res);
+          console.log(searchResults); 
         })
         .catch((err) => {
           console.log('Error', err);
@@ -298,6 +307,8 @@ function App() {
             itemsToShow={itemsToShow}
             showMore={showMore}
             setSavedMovies={setSavedMovies}
+            searchResults={searchResults}
+            setSearchResults={setSearchResults}
           >
           </ProtectedRoute>
           <ProtectedRoute path="/profile"

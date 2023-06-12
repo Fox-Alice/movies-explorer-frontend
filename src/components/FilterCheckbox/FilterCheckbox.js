@@ -1,15 +1,4 @@
-import React, { useState } from 'react';
-
 function FilterCheckbox({ checked, onChangeCheckbox, filtermoviesdur }) {
-
-    // const [checked, setChecked] = useState(false);
-
-    // const changeCheckbox = () => {        
-    //     setChecked(!checked);
-    //     // let filterMoviesDur = moviesArray?.filter(movie => {
-    //     //     return movie?.duration < 40});
-    //     //     return filterMoviesDur;
-    //     }
 
     return (
         <label className="search-form__styling-checkbox">
