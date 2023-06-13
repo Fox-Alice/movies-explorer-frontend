@@ -23,7 +23,7 @@ function Movies({
     const [value, setValue] = useState(localStorage.getItem('keyword') || '');
     const [error, setError] = useState(null);
     const [emptyField, setEmptyField] = useState(false);
-    const [searchResults, setSearchResults] = useState(JSON.parse(localStorage.getItem('filterMovies')) || []);
+    const [searchResults, setSearchResults] = useState(localStorage.getItem('filtrMovies') ? JSON.parse(localStorage.getItem('filterMovies')) : []);
 
     const filtermoviesdur = searchResults?.filter(movie => {
         return movie?.duration < shortFilmsDuration
