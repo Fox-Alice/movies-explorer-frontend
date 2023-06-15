@@ -10,7 +10,6 @@ function MoviesCard({ item, onCardClick, onCardSave, onCardDeleteClick, savedMov
 
     function handleSaveClick() {
         onCardSave(item);
-        console.log(isSaved);
     }
 
     function handleDeleteClick() {

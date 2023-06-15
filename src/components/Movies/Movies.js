@@ -13,9 +13,6 @@ function Movies({
     onCardDeleteSave,
     savedMovies,
     handleBurgerOpen,
-    checked,
-    changeCheckbox,
-    setChecked,
     itemsToShow,
     showMore
 }) {
@@ -23,8 +20,8 @@ function Movies({
     const [value, setValue] = useState(localStorage.getItem('keyword') || '');
     const [error, setError] = useState(null);
     const [emptyField, setEmptyField] = useState(false);
-    const [searchResults, setSearchResults] = useState(localStorage.getItem('filtrMovies') ? JSON.parse(localStorage.getItem('filterMovies')) : []);
-
+    const [searchResults, setSearchResults] = useState(JSON.parse(localStorage.getItem('filterMovies')) || []);
+    const [checked, setChecked] = useState((localStorage.getItem('checkboxMovies') === 'true'));
     const filtermoviesdur = searchResults?.filter(movie => {
         return movie?.duration < shortFilmsDuration
     })
@@ -49,9 +46,14 @@ function Movies({
             setSearchResults(filterMovies);
             localStorage.setItem('keyword', value)
             localStorage.setItem('filterMovies', JSON.stringify(filterMovies));
-            localStorage.setItem('checkbox', checked);
         }
     }
+
+    const changeCheckbox = () => {
+        setChecked(!checked);
+        localStorage.setItem('checkboxMovies', !checked);
+    }
+
 
     return (
         <div className="movies">

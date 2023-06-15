@@ -36,7 +36,7 @@
 
 @media screen and (min-width: 1141px){
     .movies__more-button {
-        width: 1140px;
+        max-width: 1140px;
     }
 }
 

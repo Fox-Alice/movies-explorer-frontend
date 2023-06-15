@@ -16,7 +16,7 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import api from '../../utils/MainApi';
 import * as auth from '../../utils/Auth';
 import './App.css';
-import { 
+import {
   NUM_SM,
   NUM_MD,
   NUM_LG,
@@ -24,11 +24,12 @@ import {
   MORE_SM,
   MORE_MD,
   MORE_LG,
-  MORE_XL } from '../../utils/constants';
+  MORE_XL
+} from '../../utils/constants';
 
 function App() {
 
-  const [moviesCards, setMovies] = useState([]);
+  const [moviesCards, setMovies] = useState(JSON.parse(localStorage.getItem('beatfilms')) || []);
   const [savedMovies, setSavedMovies] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -37,14 +38,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isTooltipPopupOpen, setIsTooltipPopupOpen] = useState(false);
   const [itemsToShow, setIemsToShow] = useState(5);
-  const [checked, setChecked] = useState((localStorage.getItem('checkbox') === 'true'));
   const [isUserUpdate, setIsUserUpdate] = useState(false);
   const { isScreenSm, isScreenMd, isScreenLg, isScreenXl } = useResize();
   const [searchResults, setSearchResults] = useState([]);
-
-  const changeCheckbox = () => {
-    setChecked(!checked);
-  }
 
   const closePopup = () => {
     setIsTooltipPopupOpen(false);
@@ -107,7 +103,7 @@ function App() {
 
   const handleSaveMovie = useCallback(async (data) => {
     try {
-      const savedMovies = await api.getSavedMovies()
+      // const savedMovies = await api.getSavedMovies()
       const isSaved = savedMovies?.some((movie) => movie?.movieId === data.id);
       if (!isSaved) {
         const movie = await api.handleSave({
@@ -128,8 +124,8 @@ function App() {
           throw new Error('dr');
         } else {
           setSavedMovies(savedMovies.concat(movie));
-          console.log(data.id);
-          console.log(savedMovies);
+          // console.log(data.id);
+          // console.log(savedMovies);
         }
         return movie;
       } else {
@@ -212,14 +208,14 @@ function App() {
   });
 
   function handleUpdateUser(data) {
-      api.editProfile(data)
-      .then((res) => {   
-        if (res) {      
-        setCurrentUser(res);
-        setIsUserUpdate(true);
-        setIsTooltipPopupOpen(true);
-        setMessage(null)
-      }
+    api.editProfile(data)
+      .then((res) => {
+        if (res) {
+          setCurrentUser(res);
+          setIsUserUpdate(true);
+          setIsTooltipPopupOpen(true);
+          setMessage(null)
+        }
       })
       .catch((err) => {
         setMessage(err);
@@ -241,7 +237,7 @@ function App() {
       moviesApi.getMovies()
         .then((res) => {
           localStorage.setItem('beatfilms', JSON.stringify(res));
-          
+          setMovies(res);
         })
         .catch((err) => {
           console.log('Error', err);
@@ -265,7 +261,6 @@ function App() {
         .then((res) => {
           setSavedMovies(res);
           setSearchResults(res);
-          console.log(searchResults); 
         })
         .catch((err) => {
           console.log('Error', err);
@@ -287,9 +282,6 @@ function App() {
               moviesCards={moviesCards}
               onCardSave={handleSaveMovie}
               savedMovies={savedMovies}
-              checked={checked}
-              setChecked={setChecked}
-              changeCheckbox={changeCheckbox}
               itemsToShow={itemsToShow}
               showMore={showMore}
             >
@@ -301,9 +293,6 @@ function App() {
             moviesCards={moviesCards}
             savedMovies={savedMovies}
             onCardDeleteClick={handleDeleteMovie}
-            checked={checked}
-            setChecked={setChecked}
-            changeCheckbox={changeCheckbox}
             itemsToShow={itemsToShow}
             showMore={showMore}
             setSavedMovies={setSavedMovies}

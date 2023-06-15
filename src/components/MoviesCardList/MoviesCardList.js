@@ -11,7 +11,7 @@ function MoviesCardList({ itemsToShow, moviesCards, onCardClick, onCardSave, onC
         <section className="movies-card-list">
             {page === "/movies" ? (
                 <>
-                    {moviesCards.slice(0, itemsToShow).map((item) => (
+                    {moviesCards?.slice(0, itemsToShow).map((item) => (
                         <MoviesCard
                             key={item.id}
                             item={item}
