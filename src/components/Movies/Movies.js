@@ -79,12 +79,12 @@ function Movies({
                             onCardSave={onCardSave}
                             onCardDeleteSave={onCardDeleteSave}
                             itemsToShow={itemsToShow}
-                        /> {!checked && searchResults.length >= itemsToShow &&
+                        /> {!checked && searchResults?.length >= itemsToShow &&
                             <button
                                 className='movies__more-button'
                                 type="submit"
                                 onClick={showMore}>Ещё</button>}
-                        {checked && filtermoviesdur.length >= itemsToShow &&
+                        {checked && filtermoviesdur?.length >= itemsToShow &&
                             <button
                                 className='movies__more-button'
                                 type="submit"
