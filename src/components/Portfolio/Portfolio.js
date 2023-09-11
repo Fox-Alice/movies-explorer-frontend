@@ -22,7 +22,7 @@ function Portfolio() {
                     <hr className="portfolio__border"></hr>
                 </li>
                 <li className="portfolio__list">
-                    <a className="portfolio__link" href="https://fox-alice.github.io/mesto/" target="_blank" rel="noreferrer">
+                    <a className="portfolio__link" href="https://foxalice.nomoredomains.rocks/" target="_blank" rel="noreferrer">
                         <div className="portfolio__string">
                             <p className="portfolio__name">Одностраничное приложение</p>
                             <p className="portfolio__name">↗</p>
