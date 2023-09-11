@@ -8,10 +8,11 @@ import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 import './Main.css'
 
-function Main() {
+function Main({loggedIn}) {
     return (
         <div className="main">
-            <Header header="header main__header" />
+            <Header className="header main__header"
+                loggedIn={loggedIn} />
             <main>
                 <Promo />
                 <NavTab />

@@ -17,6 +17,8 @@
         height: 100%;
         background-color: #202020;
         transition: right 0.3s ease 0s;
+        /* backdrop-filter: opacity(0.3); */
+
     }
 }
 
@@ -95,6 +97,7 @@
 
 .navigation__link_active {
     font-weight: 500;
+    color: #3DDC84;
 }
 
 @media screen and (max-width: 768px) {

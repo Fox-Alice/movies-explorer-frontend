@@ -1,5 +1,5 @@
 import './AboutMe.css';
-import image from '../../images/about-me__image.png'
+import image from '../../images/about-me__image.jpg'
 function AboutMe() {
     return (
         <section className="about-me block">
@@ -8,9 +8,10 @@ function AboutMe() {
             <div className='about-me__container'>
                 <img className="about-me__image" src={image} alt={"avatar"} />
                 <div className='about-me__content-container'>
-                    <h3 className="about-me__subtitle">Виталий</h3>
-                    <p className="about-me__description">Фронтенд-разработчик, 30 лет</p>
-                    <p className="about-me__content content">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
+                    <h3 className="about-me__subtitle">Эльвира</h3>
+                    <p className="about-me__description">Фронтенд-разработчик</p>
+                    <p className="about-me__content content">Я живу в Костроме, закончила институт экономики, управления и финансов КГТУ по специальности "финансы и кредит".
+                     У меня есть муж и сын. Я люблю играть в квизы, а ещё увлекаюсь волейболом. Недавно начала кодить. В 2023 году закончила курс "веб-разработчик" от Яндекс Практикума</p>
                     <a className="about-me__github-link" href="https://github.com/Fox-Alice" target="_blank" rel="noreferrer">Github</a>
                 </div>
             </div>

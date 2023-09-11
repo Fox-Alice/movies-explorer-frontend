@@ -1,16 +1,24 @@
-import logo from '../../images/header__logo.svg';
 import { Link, Route, Switch, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import Navigation from '../Navigation/Navigation';
+import logo from '../../images/header__logo.svg';
 import './Header.css';
 
-function Header({ header }
+function Header({ className, loggedIn }
 ) {
   let location = useLocation();
   const page = location.pathname;
 
+  const [navigationActive, setNavigationActive] = useState(false);
+
+  const handleBurgerOpen = () => {
+    setNavigationActive(!navigationActive);
+    console.log(navigationActive);
+  }
+
   return (
-    <header className={header}>
-      {page === "/" ? (
+    <header className={className}>
+      {page === "/" && !loggedIn ? (
         <>
           <img className="header__logo" src={logo} alt="Логотип проекта movie-explorer" />
           <Switch>
@@ -26,12 +34,16 @@ function Header({ header }
         </>
       ) : (
         <>
-          <Link exact to="/" className="header__link" >
+          <Link to="/" className="header__link" >
             <img className="header__logo" src={logo} alt="Логотип проекта movie-explorer" />
           </Link>
-          <nav className="header__burger-button">
+          <nav className="header__burger-button"
+            id="burger"
+            onClick={handleBurgerOpen}>
           </nav>
-          <Navigation />
+          <Navigation
+            active={navigationActive}
+            setActive={setNavigationActive} />
         </>
       )}
     </header>
